@@ -101,6 +101,32 @@ summary(mpg)
 install.packages("dplyr")
 library(dplyr)
 
+mpg
+df_raw <- data.frame(var1 = c(1,2,1),
+                     var2 = c(2,3,2))
+df_raw
+df_new <- df_raw
+df_new
+df_new <- rename(df_new,v2 = var2)
+df_new
+df_new <- rename(df_new,v1 = var1)
+df_new
+
+mpg_new <-mpg
+mpg_new <- rename(mpg_new,city = cty)
+mpg_new <- rename(mpg_new,highway = hwy)
+head(mpg_new)
+
+df_raw
+df_raw$var_sum <-df_raw$var1 + df_raw$var2
+df_raw
+df_raw$var_mean <- (df_raw$var_sum)/2
+df_raw
+mpg$total <-(mpg$cty + mpg$hwy)/2
+head(mpg)
+mean(mpg$total)
+
+
 
 
 
