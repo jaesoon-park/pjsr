@@ -168,3 +168,4 @@ mean(midwest$humen)
 midwest$mean <-ifelse(midwest$humen > 0.4872462,"large","small")
 midwest$mean
 table(midwest$mean)
+qplot(midwest$mean)
