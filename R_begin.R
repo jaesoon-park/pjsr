@@ -126,12 +126,45 @@ mpg$total <-(mpg$cty + mpg$hwy)/2
 head(mpg)
 mean(mpg$total)
 
+summary(mpg$total)
+hist(mpg$total)
 
 
+mpg$test <- ifelse(mpg$total >= 20,"pass","fail")
+table(mpg$test)
 
 
+mpg$grade <- ifelse(mpg$total >= 30, "A",
+                    ifelse(mpg$total >= 20, "B","C"))
+head(mpg,20)
 
+table((mpg$grade),(mpg$total))
+qplot(mpg$grade)
 
+library(ggplot2)
+qplot(mpg$total)
+qplot(mpg$grade)
 
+mpg$grade2 <- ifelse(mpg$total >= 30,"A",
+                     ifelse(mpg$total >= 25, "B",
+                            ifelse(mpg$total >= 20, "C","D")))
+library(dplyr)
+as.data.frame(ggplot2::midwest)
+head(midwest)
+tail(midwest)
+View(midwest)
+dim(midwest)
+str(midwest)
+summary(midwest)
 
+midwest <-rename(midwest,total = poptotal)
+midwest <-rename(midwest,asian = popasian)
+head(midwest)
 
+midwest$humen<- midwest$asian/midwest$total * 100
+hist(midwest$humen)
+mean(midwest$humen)
+
+midwest$mean <-ifelse(midwest$humen > 0.4872462,"large","small")
+midwest$mean
+table(midwest$mean)
